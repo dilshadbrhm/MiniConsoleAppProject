@@ -33,7 +33,7 @@ namespace MiniConsoleAppProject.Models
 
         public virtual void PrintInfo()
         {
-            Console.WriteLine($"{Id} {Name} {Price} {Stock}");
+            Console.WriteLine($"{Id} Name:{Name} Price:{Price} Stock:{Stock}");
         }
 
        

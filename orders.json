@@ -1,0 +1,35 @@
+[
+  {
+    "Items": [
+      {
+        "Id": 1,
+        "Product": {
+          "Id": 1,
+          "Name": "iphonw",
+          "Price": 1500.0,
+          "Stock": 17
+        },
+        "Count": 2,
+        "Price": 1500.0,
+        "SubTotal": 3000.0
+      },
+      {
+        "Id": 2,
+        "Product": {
+          "Id": 1,
+          "Name": "iphonw",
+          "Price": 1500.0,
+          "Stock": 17
+        },
+        "Count": 1,
+        "Price": 1500.0,
+        "SubTotal": 1500.0
+      }
+    ],
+    "Id": 1,
+    "Total": 4500.0,
+    "Email": "asd@gmail.com",
+    "Status": 3,
+    "OrderedAt": "2025-09-01T20:54:07.4105316+04:00"
+  }
+]

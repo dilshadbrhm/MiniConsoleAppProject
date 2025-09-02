@@ -22,7 +22,9 @@ namespace MiniConsoleAppProject.Models
                 throw new Exception("Wrong email");
             Id = _count++;
             Email = email;
+            Items = items;              
             Total = CalculateTotal();
+            Status = OrderStatus.Pending;
         }
 
         private decimal CalculateTotal()
@@ -38,7 +40,7 @@ namespace MiniConsoleAppProject.Models
 
         internal void PrintInfo()
         {
-            throw new NotImplementedException();
+            Console.WriteLine($" {Id}  {Email}  Total:{Total}  Status:{Status}  Ordered at:{OrderedAt}");
         }
     }
 }

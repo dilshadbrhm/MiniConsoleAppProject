@@ -1,0 +1,32 @@
+[
+  {
+    "Id": 1,
+    "Name": "iphonw",
+    "Price": 1500.0,
+    "Stock": 17
+  },
+  {
+    "Id": 2,
+    "Name": "samsung",
+    "Price": 1550.0,
+    "Stock": 20
+  },
+  {
+    "Id": 5,
+    "Name": "Iphone",
+    "Price": 1500.0,
+    "Stock": 20
+  },
+  {
+    "Id": 6,
+    "Name": "Xiomu",
+    "Price": 5000.0,
+    "Stock": 20
+  },
+  {
+    "Id": 7,
+    "Name": "Lg",
+    "Price": 200.0,
+    "Stock": 14
+  }
+]

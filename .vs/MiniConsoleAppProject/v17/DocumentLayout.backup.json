@@ -3,16 +3,36 @@
   "WorkspaceRootPath": "C:\\Users\\dilsa\\OneDrive\\Masa\u00FCst\u00FC\\VSrep\\MiniConsoleAppProject\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{743BA9CC-3A19-49AC-A726-9C003F7FDB89}|MiniConsoleAppProject.csproj|c:\\users\\dilsa\\onedrive\\masa\u00FCst\u00FC\\vsrep\\miniconsoleappproject\\orderservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{743BA9CC-3A19-49AC-A726-9C003F7FDB89}|MiniConsoleAppProject.csproj|solutionrelative:orderservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{743BA9CC-3A19-49AC-A726-9C003F7FDB89}|MiniConsoleAppProject.csproj|c:\\users\\dilsa\\onedrive\\masa\u00FCst\u00FC\\vsrep\\miniconsoleappproject\\managementapplication.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{743BA9CC-3A19-49AC-A726-9C003F7FDB89}|MiniConsoleAppProject.csproj|solutionrelative:managementapplication.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{743BA9CC-3A19-49AC-A726-9C003F7FDB89}|MiniConsoleAppProject.csproj|c:\\users\\dilsa\\onedrive\\masa\u00FCst\u00FC\\vsrep\\miniconsoleappproject\\models\\product.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{743BA9CC-3A19-49AC-A726-9C003F7FDB89}|MiniConsoleAppProject.csproj|solutionrelative:models\\product.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{743BA9CC-3A19-49AC-A726-9C003F7FDB89}|MiniConsoleAppProject.csproj|c:\\users\\dilsa\\onedrive\\masa\u00FCst\u00FC\\vsrep\\miniconsoleappproject\\productservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{743BA9CC-3A19-49AC-A726-9C003F7FDB89}|MiniConsoleAppProject.csproj|solutionrelative:productservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{743BA9CC-3A19-49AC-A726-9C003F7FDB89}|MiniConsoleAppProject.csproj|c:\\users\\dilsa\\onedrive\\masa\u00FCst\u00FC\\vsrep\\miniconsoleappproject\\products.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{743BA9CC-3A19-49AC-A726-9C003F7FDB89}|MiniConsoleAppProject.csproj|solutionrelative:products.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{743BA9CC-3A19-49AC-A726-9C003F7FDB89}|MiniConsoleAppProject.csproj|c:\\users\\dilsa\\onedrive\\masa\u00FCst\u00FC\\vsrep\\miniconsoleappproject\\orders.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{743BA9CC-3A19-49AC-A726-9C003F7FDB89}|MiniConsoleAppProject.csproj|solutionrelative:orders.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{743BA9CC-3A19-49AC-A726-9C003F7FDB89}|MiniConsoleAppProject.csproj|c:\\users\\dilsa\\onedrive\\masa\u00FCst\u00FC\\vsrep\\miniconsoleappproject\\helper\\effects.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{743BA9CC-3A19-49AC-A726-9C003F7FDB89}|MiniConsoleAppProject.csproj|solutionrelative:helper\\effects.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{743BA9CC-3A19-49AC-A726-9C003F7FDB89}|MiniConsoleAppProject.csproj|c:\\users\\dilsa\\onedrive\\masa\u00FCst\u00FC\\vsrep\\miniconsoleappproject\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{743BA9CC-3A19-49AC-A726-9C003F7FDB89}|MiniConsoleAppProject.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{743BA9CC-3A19-49AC-A726-9C003F7FDB89}|MiniConsoleAppProject.csproj|c:\\users\\dilsa\\onedrive\\masa\u00FCst\u00FC\\vsrep\\miniconsoleappproject\\models\\product.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{743BA9CC-3A19-49AC-A726-9C003F7FDB89}|MiniConsoleAppProject.csproj|solutionrelative:models\\product.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{743BA9CC-3A19-49AC-A726-9C003F7FDB89}|MiniConsoleAppProject.csproj|c:\\users\\dilsa\\onedrive\\masa\u00FCst\u00FC\\vsrep\\miniconsoleappproject\\models\\orderitem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -27,14 +47,6 @@
       "RelativeMoniker": "D:0:0:{743BA9CC-3A19-49AC-A726-9C003F7FDB89}|MiniConsoleAppProject.csproj|solutionrelative:helper\\filehelper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{743BA9CC-3A19-49AC-A726-9C003F7FDB89}|MiniConsoleAppProject.csproj|c:\\users\\dilsa\\onedrive\\masa\u00FCst\u00FC\\vsrep\\miniconsoleappproject\\products.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
-      "RelativeMoniker": "D:0:0:{743BA9CC-3A19-49AC-A726-9C003F7FDB89}|MiniConsoleAppProject.csproj|solutionrelative:products.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{743BA9CC-3A19-49AC-A726-9C003F7FDB89}|MiniConsoleAppProject.csproj|c:\\users\\dilsa\\onedrive\\masa\u00FCst\u00FC\\vsrep\\miniconsoleappproject\\orders.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
-      "RelativeMoniker": "D:0:0:{743BA9CC-3A19-49AC-A726-9C003F7FDB89}|MiniConsoleAppProject.csproj|solutionrelative:orders.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{743BA9CC-3A19-49AC-A726-9C003F7FDB89}|MiniConsoleAppProject.csproj|c:\\users\\dilsa\\onedrive\\masa\u00FCst\u00FC\\vsrep\\miniconsoleappproject\\enums\\orderstatus.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{743BA9CC-3A19-49AC-A726-9C003F7FDB89}|MiniConsoleAppProject.csproj|solutionrelative:enums\\orderstatus.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
@@ -46,121 +58,160 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "OrderService.cs",
+              "DocumentMoniker": "C:\\Users\\dilsa\\OneDrive\\Masa\u00FCst\u00FC\\VSrep\\MiniConsoleAppProject\\OrderService.cs",
+              "RelativeDocumentMoniker": "OrderService.cs",
+              "ToolTip": "C:\\Users\\dilsa\\OneDrive\\Masa\u00FCst\u00FC\\VSrep\\MiniConsoleAppProject\\OrderService.cs",
+              "RelativeToolTip": "OrderService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAIEAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-02T03:21:26.45Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "ProductService.cs",
+              "DocumentMoniker": "C:\\Users\\dilsa\\OneDrive\\Masa\u00FCst\u00FC\\VSrep\\MiniConsoleAppProject\\ProductService.cs",
+              "RelativeDocumentMoniker": "ProductService.cs",
+              "ToolTip": "C:\\Users\\dilsa\\OneDrive\\Masa\u00FCst\u00FC\\VSrep\\MiniConsoleAppProject\\ProductService.cs",
+              "RelativeToolTip": "ProductService.cs",
+              "ViewState": "AgIAAHgAAAAAAAAAAAAowBQAAAAEAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-02T03:08:39.323Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 5,
+              "Title": "Effects.cs",
+              "DocumentMoniker": "C:\\Users\\dilsa\\OneDrive\\Masa\u00FCst\u00FC\\VSrep\\MiniConsoleAppProject\\Helper\\Effects.cs",
+              "RelativeDocumentMoniker": "Helper\\Effects.cs",
+              "ToolTip": "C:\\Users\\dilsa\\OneDrive\\Masa\u00FCst\u00FC\\VSrep\\MiniConsoleAppProject\\Helper\\Effects.cs",
+              "RelativeToolTip": "Helper\\Effects.cs",
+              "ViewState": "AgIAAEwAAAAAAAAAAAAkwGcAAAA3AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-01T16:00:03.499Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
               "Title": "FileHelper.cs",
               "DocumentMoniker": "C:\\Users\\dilsa\\OneDrive\\Masa\u00FCst\u00FC\\VSrep\\MiniConsoleAppProject\\Helper\\FileHelper.cs",
               "RelativeDocumentMoniker": "Helper\\FileHelper.cs",
               "ToolTip": "C:\\Users\\dilsa\\OneDrive\\Masa\u00FCst\u00FC\\VSrep\\MiniConsoleAppProject\\Helper\\FileHelper.cs",
               "RelativeToolTip": "Helper\\FileHelper.cs",
-              "ViewState": "AgIAAAYAAAAAAAAAAAAAAAsAAAAkAAAAAAAAAA==",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAACEAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-09-01T07:25:27.89Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 3,
               "Title": "products.json",
               "DocumentMoniker": "C:\\Users\\dilsa\\OneDrive\\Masa\u00FCst\u00FC\\VSrep\\MiniConsoleAppProject\\products.json",
               "RelativeDocumentMoniker": "products.json",
               "ToolTip": "C:\\Users\\dilsa\\OneDrive\\Masa\u00FCst\u00FC\\VSrep\\MiniConsoleAppProject\\products.json",
               "RelativeToolTip": "products.json",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAEAAAACAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
               "WhenOpened": "2025-09-01T06:09:16.216Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "ManagementApplication.cs",
               "DocumentMoniker": "C:\\Users\\dilsa\\OneDrive\\Masa\u00FCst\u00FC\\VSrep\\MiniConsoleAppProject\\ManagementApplication.cs",
               "RelativeDocumentMoniker": "ManagementApplication.cs",
               "ToolTip": "C:\\Users\\dilsa\\OneDrive\\Masa\u00FCst\u00FC\\VSrep\\MiniConsoleAppProject\\ManagementApplication.cs",
               "RelativeToolTip": "ManagementApplication.cs",
-              "ViewState": "AgIAAPgAAAAAAAAAAAAkwAEBAAAqAAAAAAAAAA==",
+              "ViewState": "AgIAABcAAAAAAAAAAAAAwCAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-09-01T05:02:15.021Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 9,
               "Title": "Order.cs",
               "DocumentMoniker": "C:\\Users\\dilsa\\OneDrive\\Masa\u00FCst\u00FC\\VSrep\\MiniConsoleAppProject\\Models\\Order.cs",
               "RelativeDocumentMoniker": "Models\\Order.cs",
               "ToolTip": "C:\\Users\\dilsa\\OneDrive\\Masa\u00FCst\u00FC\\VSrep\\MiniConsoleAppProject\\Models\\Order.cs",
               "RelativeToolTip": "Models\\Order.cs",
-              "ViewState": "AgIAABAAAAAAAAAAAIAxwCgAAAAKAAAAAAAAAA==",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAAAC4AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-08-29T15:30:04.41Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 8,
               "Title": "OrderItem.cs",
               "DocumentMoniker": "C:\\Users\\dilsa\\OneDrive\\Masa\u00FCst\u00FC\\VSrep\\MiniConsoleAppProject\\Models\\OrderItem.cs",
               "RelativeDocumentMoniker": "Models\\OrderItem.cs",
               "ToolTip": "C:\\Users\\dilsa\\OneDrive\\Masa\u00FCst\u00FC\\VSrep\\MiniConsoleAppProject\\Models\\OrderItem.cs",
               "RelativeToolTip": "Models\\OrderItem.cs",
-              "ViewState": "AgIAAAMAAAAAAAAAAAAAABcAAAAlAAAAAAAAAA==",
+              "ViewState": "AgIAAAwAAAAAAAAAAAA1wBsAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-08-28T12:27:48.922Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 7,
               "Title": "Product.cs",
               "DocumentMoniker": "C:\\Users\\dilsa\\OneDrive\\Masa\u00FCst\u00FC\\VSrep\\MiniConsoleAppProject\\Models\\Product.cs",
               "RelativeDocumentMoniker": "Models\\Product.cs",
               "ToolTip": "C:\\Users\\dilsa\\OneDrive\\Masa\u00FCst\u00FC\\VSrep\\MiniConsoleAppProject\\Models\\Product.cs",
               "RelativeToolTip": "Models\\Product.cs",
-              "ViewState": "AgIAAA0AAAAAAAAAAAA9wBYAAABDAAAAAAAAAA==",
+              "ViewState": "AgIAABIAAAAAAAAAAAAowCoAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-08-28T12:17:50.191Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 6,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Users\\dilsa\\OneDrive\\Masa\u00FCst\u00FC\\VSrep\\MiniConsoleAppProject\\Program.cs",
               "RelativeDocumentMoniker": "Program.cs",
               "ToolTip": "C:\\Users\\dilsa\\OneDrive\\Masa\u00FCst\u00FC\\VSrep\\MiniConsoleAppProject\\Program.cs",
               "RelativeToolTip": "Program.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAqwAsAAAANAAAAAAAAAA==",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAABsAAAAfAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-08-28T08:25:29.49Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 4,
               "Title": "orders.json",
               "DocumentMoniker": "C:\\Users\\dilsa\\OneDrive\\Masa\u00FCst\u00FC\\VSrep\\MiniConsoleAppProject\\orders.json",
               "RelativeDocumentMoniker": "orders.json",
               "ToolTip": "C:\\Users\\dilsa\\OneDrive\\Masa\u00FCst\u00FC\\VSrep\\MiniConsoleAppProject\\orders.json",
               "RelativeToolTip": "orders.json",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAEAAAACAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
               "WhenOpened": "2025-09-01T06:09:50.221Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 11,
               "Title": "OrderStatus.cs",
               "DocumentMoniker": "C:\\Users\\dilsa\\OneDrive\\Masa\u00FCst\u00FC\\VSrep\\MiniConsoleAppProject\\Enums\\OrderStatus.cs",
               "RelativeDocumentMoniker": "Enums\\OrderStatus.cs",
               "ToolTip": "C:\\Users\\dilsa\\OneDrive\\Masa\u00FCst\u00FC\\VSrep\\MiniConsoleAppProject\\Enums\\OrderStatus.cs",
               "RelativeToolTip": "Enums\\OrderStatus.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAATAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-08-29T15:32:35.114Z",
               "EditorCaption": ""
