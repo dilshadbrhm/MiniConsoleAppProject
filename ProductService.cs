@@ -33,7 +33,7 @@ namespace MiniConsoleAppProject
                     continue;
                 }
 
-                if (_products.Exists(p => p.Name.Equals(name, StringComparison.OrdinalIgnoreCase)))
+                if (_products.Exists(p => p.Name.Equals(name)))
                 {
                     Console.WriteLine("This product already exists");
                     name = null;
