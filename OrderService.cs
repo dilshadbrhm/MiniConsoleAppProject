@@ -9,122 +9,154 @@ using System.Threading.Tasks;
 
 namespace MiniConsoleAppProject
 {
-    internal class OrderService
+    namespace MiniConsoleAppProject
     {
-        private readonly string _orderPath;
-        private List<Order> _orders;
-        private readonly ProductService _productService;
-
-        public OrderService(string orderPath, ProductService productService)
+        internal class OrderService
         {
-            _orderPath = orderPath;
-            _productService = productService;
-            _orders = FileHelper.Deserialize<Order>(_orderPath);
-        }
+            private readonly string _orderPath;
+            private List<Order> _orders;
+            private readonly ProductService _productService;
 
-        public void OrderProduct()
-        {
-            Console.Write("Enter email: ");
-            string email = Console.ReadLine();
-            if (string.IsNullOrWhiteSpace(email) || !email.Contains("@"))
+            public OrderService(string orderPath, ProductService productService)
             {
-                Console.WriteLine("Invalid email");
-                return;
+                _orderPath = orderPath;
+                _productService = productService;
+                _orders = FileHelper.Deserialize<Order>(_orderPath);
             }
 
-            List<OrderItem> orderItems = new();
-
-            while (true)
+            public void OrderProduct()
             {
-                Console.Write("Enter product Id: ");
-                if (!int.TryParse(Console.ReadLine(), out int id))
+                do
                 {
-                    Console.WriteLine("Invalid Id");
-                    continue;
+                    string email;
+                    while (true)
+                    {
+                        Console.Write("Enter email (0 - back): ");
+                        email = Console.ReadLine();
+                        if (email == "0") return;
+
+                        if (!string.IsNullOrWhiteSpace(email) && email.Contains("@"))
+                            break;
+
+                        ConsoleHelper.WriteError("Invalid email, try again.");
+                    }
+
+                    List<OrderItem> orderItems = new();
+
+                    while (true)
+                    {
+                        Product p = null;
+                        while (true)
+                        {
+                            Console.Write("Enter product Id (0 - back): ");
+                            string input = Console.ReadLine();
+                            if (input == "0") return;
+
+                            if (int.TryParse(input, out int id))
+                            {
+                                p = _productService.GetProducts().Find(x => x.Id == id);
+                                if (p != null) break;
+                            }
+                            ConsoleHelper.WriteError("Invalid Id or product not found.");
+                        }
+
+                        int count;
+                        while (true)
+                        {
+                            Console.Write("Enter count (0 - back): ");
+                            string input = Console.ReadLine();
+                            if (input == "0") return;
+
+                            if (int.TryParse(input, out count) && count > 0 && count <= p.Stock)
+                                break;
+
+                            ConsoleHelper.WriteError("Invalid count or not enough stock.");
+                        }
+
+                        OrderItem item = new OrderItem(p, count);
+                        orderItems.Add(item);
+                        p.Stock -= count;
+
+                        Console.Write("Add another product to this order? (y/n): ");
+                        if (Console.ReadLine().ToLower() != "y") break;
+                    }
+
+                    if (orderItems.Count > 0)
+                    {
+                        Order o = new Order(email, orderItems);
+                        _orders.Add(o);
+                        _productService.SaveProducts();
+                        Save();
+                        ConsoleHelper.WriteInfo("Order created successfully!");
+                    }
+
+                    Console.Write("Do you want to create another order? (y/n): ");
+                }
+                while (Console.ReadLine().ToLower() == "y");
+            }
+
+            public void ShowAllOrders()
+            {
+                if (_orders.Count == 0)
+                {
+                    ConsoleHelper.WriteError("No orders available.");
+                    return;
                 }
 
-                var p = _productService.GetProducts().Find(p => p.Id == id);
-                if (p == null)
+                ConsoleHelper.WriteInfo("All Orders:");
+                foreach (var o in _orders)
                 {
-                    Console.WriteLine("Product not found");
-                    continue;
+                    o.PrintInfo();
+                    Console.WriteLine("-----------------------------");
                 }
+            }
 
-                Console.Write("Enter count: ");
-                if (!int.TryParse(Console.ReadLine(), out int count) || count <= 0)
+            public void ChangeOrderStatus()
+            {
+                do
                 {
-                    Console.WriteLine("Invalid count");
-                    continue;
+                    Console.Write("Enter order Id (0 - back): ");
+                    string input = Console.ReadLine();
+                    if (input == "0") return;
+
+                    if (!int.TryParse(input, out int id))
+                    {
+                        ConsoleHelper.WriteError("Invalid Id.");
+                        continue;
+                    }
+
+                    var o = _orders.Find(x => x.Id == id);
+                    if (o == null)
+                    {
+                        ConsoleHelper.WriteError("Order not found.");
+                        continue;
+                    }
+
+                    Console.WriteLine("Choose status: 1.Pending, 2.Confirmed, 3.Completed (0 - back)");
+                    string stInput = Console.ReadLine();
+                    if (stInput == "0") return;
+
+                    if (!int.TryParse(stInput, out int st) || st < 1 || st > 3)
+                    {
+                        ConsoleHelper.WriteError("Invalid status.");
+                        continue;
+                    }
+
+                    o.Status = (OrderStatus)st;
+                    Save();
+                    ConsoleHelper.WriteInfo("Status updated!");
+
+                    Console.Write("Do you want to update another order? (y/n): ");
                 }
-
-                if (count > p.Stock)
-                {
-                    Console.WriteLine("Not enough stock");
-                    continue;
-                }
-
-                OrderItem item = new OrderItem(p, count);
-                orderItems.Add(item);
-                p.Stock -= count;
-
-                Console.Write("Add another (y/n): ");
-                if (Console.ReadLine().ToLower() != "y") break;
+                while (Console.ReadLine().ToLower() == "y");
             }
 
-            if (orderItems.Count > 0)
+            private void Save()
             {
-                Order o = new Order(email, orderItems);
-                _orders.Add(o);
-                _productService.SaveProducts();
-                Save();
-                Console.WriteLine("Order created successfully!");
+                FileHelper.Serialize(_orderPath, _orders);
             }
-        }
-
-        public void ShowAllOrders()
-        {
-            if (_orders.Count == 0)
-            {
-                Console.WriteLine("No orders available");
-                return;
-            }
-
-            foreach (var o in _orders)
-                o.PrintInfo();
-        }
-
-        public void ChangeOrderStatus()
-        {
-            Console.Write("Enter order Id: ");
-            if (!int.TryParse(Console.ReadLine(), out int id))
-            {
-                Console.WriteLine("Invalid Id");
-                return;
-            }
-
-            var o = _orders.Find(o => o.Id == id);
-            if (o == null)
-            {
-                Console.WriteLine("Order not found");
-                return;
-            }
-
-            Console.WriteLine("Choose status: 1.Pending, 2.Confirmed, 3.Completed");
-            if (!int.TryParse(Console.ReadLine(), out int st) || st < 1 || st > 3)
-            {
-                Console.WriteLine("Invalid status");
-                return;
-            }
-
-            o.Status = (OrderStatus)st;
-            Save();
-            Console.WriteLine("Status updated");
-        }
-
-        private void Save()
-        {
-            FileHelper.Serialize(_orderPath, _orders);
         }
     }
+
 }
 

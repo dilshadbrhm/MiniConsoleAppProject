@@ -1,5 +1,7 @@
-﻿using MiniConsoleAppProject.Enums;
+﻿using MiniConsoleAppProject;
+using MiniConsoleAppProject.Enums;
 using MiniConsoleAppProject.Helper;
+using MiniConsoleAppProject.MiniConsoleAppProject;
 using MiniConsoleAppProject.Models;
 using Newtonsoft.Json;
 using System;
@@ -10,59 +12,54 @@ using System.Text;
 using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 using System.Xml;
-
-namespace MiniConsoleAppProject
+internal class ManagementApplication
 {
-    internal class ManagementApplication
+    public string productPath = @"C:\Users\dilsa\OneDrive\Masaüstü\VSrep\MiniConsoleAppProject\products.json";
+    public string orderPath = @"C:\Users\dilsa\OneDrive\Masaüstü\VSrep\MiniConsoleAppProject\orders.json";
+
+    private ProductService productService;
+    private OrderService orderService;
+
+    public ManagementApplication()
     {
-        public string productPath = @"C:\Users\dilsa\OneDrive\Masaüstü\VSrep\MiniConsoleAppProject\products.json";
-        public string orderPath = @"C:\Users\dilsa\OneDrive\Masaüstü\VSrep\MiniConsoleAppProject\orders.json";
+        productService = new ProductService(productPath);
+        orderService = new OrderService(orderPath, productService);
+    }
 
-        private ProductService productService;
-        private OrderService orderService;
+    public void Run()
+    {
+        Console.ForegroundColor = ConsoleColor.Cyan;
 
-        public ManagementApplication()
+        int num = -1;
+        while (num != 0)
         {
-            productService = new ProductService(productPath);
-            orderService = new OrderService(orderPath, productService);
-        }
+            ConsoleHelper.WriteInfo("1.Create Product\n2.Delete Product\n3.Get Product By Id\n4.Show All Product\n5.Refill Product\n6.Order Product\n7.Show All Orders\n8.Change Order Status\n\n0.Exit");
 
-        public void Run()
-        {
-            Console.ForegroundColor = ConsoleColor.Cyan;
-
-            int num = -1;
-            while (num != 0)
+            if (!int.TryParse(Console.ReadLine(), out num))
             {
-                Effects.PrintAsciiArt();
-                Console.WriteLine("1.Create Product\n2.Delete Product\n3.Get Product By Id\n4.Show All Product\n5.Refill Product\n6.Order Product\n7.Show All Orders\n8.Change Order Status\n\n0.Exit");
-
-                if (!int.TryParse(Console.ReadLine(), out num))
-                {
-                    Console.Clear();
-                    Console.WriteLine(" Wrong input");
-                    continue;
-                }
-
                 Console.Clear();
-                switch (num)
-                {
-                    case 1: productService.CreateProduct(); break;
-                    case 2: productService.DeleteProduct(); break;
-                    case 3: productService.GetProductById(); break;
-                    case 4: productService.ShowAllProducts(); break;
-                    case 5: productService.RefillProduct(); break;
-                    case 6: orderService.OrderProduct(); break;
-                    case 7: orderService.ShowAllOrders(); break;
-                    case 8: orderService.ChangeOrderStatus(); break;
-                    case 0:
-                        Console.WriteLine("Program ended");
-                        Effects.MatrixEffect(10, 10);
-                        return;
-                    default:
-                        Console.WriteLine(" Wrong input");
-                        break;
-                }
+                ConsoleHelper.WriteError("Wrong input");
+                continue;
+            }
+
+            Console.Clear();
+            switch (num)
+            {
+                case 1: productService.CreateProduct(); break;
+                case 2: productService.DeleteProduct(); break;
+                case 3: productService.GetProductById(); break;
+                case 4: productService.ShowAllProducts(); break;
+                case 5: productService.RefillProduct(); break;
+                case 6: orderService.OrderProduct(); break;
+                case 7: orderService.ShowAllOrders(); break;
+                case 8: orderService.ChangeOrderStatus(); break;
+                case 0:
+                    ConsoleHelper.WriteInfo("Program ended");
+                    Effects.MatrixEffect(10, 10);
+                    return;
+                default:
+                    ConsoleHelper.WriteError("Wrong input");
+                    break;
             }
         }
     }

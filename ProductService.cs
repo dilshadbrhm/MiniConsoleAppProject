@@ -18,146 +18,174 @@ namespace MiniConsoleAppProject
             _productPath = productPath;
             _products = FileHelper.Deserialize<Product>(_productPath);
         }
-    
-     public void CreateProduct()
+
+        public void CreateProduct()
         {
-            string name;
             do
             {
-                Console.Write("Enter product name: ");
-                name = Console.ReadLine();
+                Console.Write("Enter product name (0 - back): ");
+                string name = Console.ReadLine();
+                if (name == "0") return;
 
-                if (string.IsNullOrWhiteSpace(name))
+                decimal price;
+                while (true)
                 {
-                    Console.WriteLine("Name cannot be empty. Please try again.");
-                    continue;
+                    Console.Write("Enter price (0 - back): ");
+                    string input = Console.ReadLine();
+                    if (input == "0") return;
+
+                    if (decimal.TryParse(input, out price) && price > 0)
+                        break;
+
+                    ConsoleHelper.WriteError("Invalid price, try again.");
                 }
 
-                if (_products.Exists(p => p.Name.Equals(name, StringComparison.OrdinalIgnoreCase)))
+                int stock;
+                while (true)
                 {
-                    Console.WriteLine("This product already exists");
-                    name = null;
+                    Console.Write("Enter stock (0 - back): ");
+                    string input = Console.ReadLine();
+                    if (input == "0") return;
+
+                    if (int.TryParse(input, out stock) && stock >= 0)
+                        break;
+
+                    ConsoleHelper.WriteError("Invalid stock, try again.");
                 }
 
-            } while (string.IsNullOrWhiteSpace(name));
+                Product p = new Product(name, price, stock);
+                _products.Add(p);
+                SaveProducts();
+                ConsoleHelper.WriteInfo("Product created successfully!");
 
-            decimal price;
-            while (true)
-            {
-                Console.Write("Enter price: ");
-                if (decimal.TryParse(Console.ReadLine(), out price) && price > 0)
-                    break;
-                Console.WriteLine("Invalid price. Try again.");
+                Console.Write("Do you want to add another product? (y/n): ");
             }
-
-            int stock;
-            while (true)
-            {
-                Console.Write("Enter stock: ");
-                if (int.TryParse(Console.ReadLine(), out stock) && stock >= 0)
-                    break;
-                Console.WriteLine("Invalid stock. Try again.");
-            }
-
-            Product p = new Product(name, price, stock);
-            _products.Add(p);
-            Save();
-            Console.WriteLine("Product created");
+            while (Console.ReadLine().ToLower() == "y");
         }
 
         public void DeleteProduct()
         {
-            int id = GetIdFromUser("Enter Id to delete: ");
-            var product = _products.Find(p => p.Id == id);
-
-            if (product == null)
+            do
             {
-                Console.WriteLine("Product not found.");
-                return;
-            }
+                Console.Write("Enter product Id to delete (0 - back): ");
+                string input = Console.ReadLine();
+                if (input == "0") return;
 
-            _products.Remove(product);
-            Save();
-            Console.WriteLine("Product deleted.");
+                if (!int.TryParse(input, out int id))
+                {
+                    ConsoleHelper.WriteError("Invalid Id.");
+                    continue;
+                }
+
+                var p = _products.Find(x => x.Id == id);
+                if (p == null)
+                {
+                    ConsoleHelper.WriteError("Product not found.");
+                    continue;
+                }
+
+                _products.Remove(p);
+                SaveProducts();
+                ConsoleHelper.WriteInfo("Product deleted successfully!");
+
+                Console.Write("Do you want to delete another product? (y/n): ");
+            }
+            while (Console.ReadLine().ToLower() == "y");
+        }
+
+        public void GetProductById()
+        {
+            do
+            {
+                Console.Write("Enter product Id (0 - back): ");
+                string input = Console.ReadLine();
+                if (input == "0") return;
+
+                if (!int.TryParse(input, out int id))
+                {
+                    ConsoleHelper.WriteError("Invalid Id.");
+                    continue;
+                }
+
+                var p = _products.Find(x => x.Id == id);
+                if (p == null)
+                {
+                    ConsoleHelper.WriteError("Product not found.");
+                    continue;
+                }
+
+                p.PrintInfo();
+                Console.WriteLine();
+
+                Console.Write("Do you want to search another product? (y/n): ");
+            }
+            while (Console.ReadLine().ToLower() == "y");
         }
 
         public void ShowAllProducts()
         {
             if (_products.Count == 0)
             {
-                Console.WriteLine("No products available");
+                ConsoleHelper.WriteError("No products available.");
                 return;
             }
 
+            ConsoleHelper.WriteInfo("All Products:");
             foreach (var p in _products)
+            {
                 p.PrintInfo();
+                Console.WriteLine("-----------------------------");
+            }
         }
 
         public void RefillProduct()
         {
-            int id = GetIdFromUser("Enter product Id to refill: ");
-            var product = _products.Find(p => p.Id == id);
-
-            if (product == null)
+            do
             {
-                Console.WriteLine("Product not found.");
-                return;
+                Console.Write("Enter product Id (0 - back): ");
+                string input = Console.ReadLine();
+                if (input == "0") return;
+
+                if (!int.TryParse(input, out int id))
+                {
+                    ConsoleHelper.WriteError("Invalid Id.");
+                    continue;
+                }
+
+                var p = _products.Find(x => x.Id == id);
+                if (p == null)
+                {
+                    ConsoleHelper.WriteError("Product not found.");
+                    continue;
+                }
+
+                int amount;
+                while (true)
+                {
+                    Console.Write("Enter refill amount (0 - back): ");
+                    string inp = Console.ReadLine();
+                    if (inp == "0") return;
+
+                    if (int.TryParse(inp, out amount) && amount > 0)
+                        break;
+
+                    ConsoleHelper.WriteError("Invalid amount.");
+                }
+
+                p.Stock += amount;
+                SaveProducts();
+                ConsoleHelper.WriteInfo("Stock updated successfully!");
+
+                Console.Write("Do you want to refill another product? (y/n): ");
             }
-
-            int add;
-            while (true)
-            {
-                Console.Write("Enter value to add: ");
-                if (int.TryParse(Console.ReadLine(), out add) && add > 0)
-                    break;
-
-                Console.WriteLine("Invalid value. Try again.");
-            }
-
-            product.Stock += add;
-            Save();
-            Console.WriteLine("Stock updated");
+            while (Console.ReadLine().ToLower() == "y");
         }
 
-        public Product GetProductById()
-        {
-            int id = GetIdFromUser("Enter product Id: ");
-            var product = _products.Find(p => p.Id == id);
-
-            if (product == null)
-                Console.WriteLine("Product not found.");
-            else
-                product.PrintInfo();
-
-            return product;
-        }
-
-        private int GetIdFromUser(string message)
-        {
-            int id;
-            while (true)
-            {
-                Console.Write(message);
-                if (int.TryParse(Console.ReadLine(), out id) && id > 0)
-                    return id;
-
-                Console.WriteLine("Invalid Id. Try again.");
-            }
-        }
-
-        private void Save()
-        {
-            FileHelper.Serialize(_productPath, _products);
-        }
-
-        public List<Product> GetProducts()
-        {
-            return _products;
-        }
+        public List<Product> GetProducts() => _products;
 
         public void SaveProducts()
         {
-            Save();
+            FileHelper.Serialize(_productPath, _products);
         }
     }
 }
