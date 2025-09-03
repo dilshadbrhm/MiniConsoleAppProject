@@ -11,21 +11,42 @@ namespace MiniConsoleAppProject
     internal class ProductService
     {
         private readonly string _productPath;
-        private List<Product> _products;
+        private List<Product> _products = new();
 
         public ProductService(string productPath)
         {
             _productPath = productPath;
             _products = FileHelper.Deserialize<Product>(_productPath);
+            if (_products == null)
+            {
+                _products = new List<Product>();
+            }
         }
 
         public void CreateProduct()
         {
             do
             {
-                Console.Write("Enter product name (0 - back): ");
-                string name = Console.ReadLine();
-                if (name == "0") return;
+                string name;
+                do
+                {
+                    Console.Write("Enter product name: ");
+                    name = Console.ReadLine();
+
+                    if (string.IsNullOrWhiteSpace(name))
+                    {
+                        Console.WriteLine("Name cannot be empty. Please try again.");
+                        continue;
+                    }
+                    
+                    if (_products.Exists(p => p.Name.Equals(name)))
+                    {
+                        Console.WriteLine("This product already exists");
+                        name = null;
+                    }
+
+                } while (string.IsNullOrWhiteSpace(name));
+
 
                 decimal price;
                 while (true)
@@ -40,18 +61,20 @@ namespace MiniConsoleAppProject
                     ConsoleHelper.WriteError("Invalid price, try again.");
                 }
 
+
                 int stock;
                 while (true)
-                {
-                    Console.Write("Enter stock (0 - back): ");
-                    string input = Console.ReadLine();
-                    if (input == "0") return;
 
-                    if (int.TryParse(input, out stock) && stock >= 0)
-                        break;
+                    {
+                        Console.Write("Enter stock (0 - back): ");
+                        string input = Console.ReadLine();
+                        if (input == "0") return;
 
-                    ConsoleHelper.WriteError("Invalid stock, try again.");
-                }
+                        if (int.TryParse(input, out stock) && stock >= 0)
+                            break;
+
+                        ConsoleHelper.WriteError("Invalid stock, try again.");
+                    }
 
                 Product p = new Product(name, price, stock);
                 _products.Add(p);

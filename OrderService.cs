@@ -22,86 +22,79 @@ namespace MiniConsoleAppProject
                 _orderPath = orderPath;
                 _productService = productService;
                 _orders = FileHelper.Deserialize<Order>(_orderPath);
+                if (_orders == null)
+                {
+                    _orders = new List<Order>();
+                }
             }
 
             public void OrderProduct()
             {
-                do
+                
+
+                Console.Write("Enter email: ");
+                string email = Console.ReadLine();
+                if (string.IsNullOrWhiteSpace(email) || !email.Contains("@"))
                 {
-                    string email;
-                    while (true)
-                    {
-                        Console.Write("Enter email (0 - back): ");
-                        email = Console.ReadLine();
-                        if (email == "0") return;
-
-                        if (!string.IsNullOrWhiteSpace(email) && email.Contains("@"))
-                            break;
-
-                        ConsoleHelper.WriteError("Invalid email, try again.");
-                    }
-
-                    List<OrderItem> orderItems = new();
-
-                    while (true)
-                    {
-                        Product p = null;
-                        while (true)
-                        {
-                            Console.Write("Enter product Id (0 - back): ");
-                            string input = Console.ReadLine();
-                            if (input == "0") return;
-
-                            if (int.TryParse(input, out int id))
-                            {
-                                p = _productService.GetProducts().Find(x => x.Id == id);
-                                if (p != null) break;
-                            }
-                            ConsoleHelper.WriteError("Invalid Id or product not found.");
-                        }
-
-                        int count;
-                        while (true)
-                        {
-                            Console.Write("Enter count (0 - back): ");
-                            string input = Console.ReadLine();
-                            if (input == "0") return;
-
-                            if (int.TryParse(input, out count) && count > 0 && count <= p.Stock)
-                                break;
-
-                            ConsoleHelper.WriteError("Invalid count or not enough stock.");
-                        }
-
-                        OrderItem item = new OrderItem(p, count);
-                        orderItems.Add(item);
-                        p.Stock -= count;
-
-                        Console.Write("Add another product to this order? (y/n): ");
-                        if (Console.ReadLine().ToLower() != "y") break;
-                    }
-
-                    if (orderItems.Count > 0)
-                    {
-                        Order o = new Order(email, orderItems);
-                        _orders.Add(o);
-                        _productService.SaveProducts();
-                        Save();
-                        ConsoleHelper.WriteInfo("Order created successfully!");
-                    }
-
-                    Console.Write("Do you want to create another order? (y/n): ");
+                    Console.WriteLine("Invalid email");
+                    return;
                 }
-                while (Console.ReadLine().ToLower() == "y");
+
+                List<OrderItem> orderItems = new();
+
+                while (true)
+                {
+                    Console.Write("Enter product Id: ");
+                    if (!int.TryParse(Console.ReadLine(), out int id))
+                    {
+                        Console.WriteLine("Invalid Id");
+                        continue;
+                    }
+
+                    var p = _productService.GetProducts().Find(p => p.Id == id);
+                    if (p == null)
+                    {
+                        Console.WriteLine("Product not found");
+                        continue;
+                    }
+
+                    Console.Write("Enter count: ");
+                    if (!int.TryParse(Console.ReadLine(), out int count) || count <= 0)
+                    {
+                        Console.WriteLine("Invalid count");
+                        continue;
+                    }
+
+                    if (count > p.Stock)
+                    {
+                        Console.WriteLine("Not enough stock");
+                        continue;
+                    }
+
+                    OrderItem item = new OrderItem(p, count);
+                    orderItems.Add(item);
+                    p.Stock -= count;
+
+                    Console.Write("Add another (y/n): ");
+                    if (Console.ReadLine().ToLower() != "y") break;
+                }
+
+                if (orderItems.Count > 0)
+                {
+                    Order o = new Order(email, orderItems);
+                    _orders.Add(o);
+                    _productService.SaveProducts();
+                    Save();
+                    Console.WriteLine("Order created successfully!");
+                }
             }
+
+                
+            
 
             public void ShowAllOrders()
             {
-                if (_orders.Count == 0)
-                {
-                    ConsoleHelper.WriteError("No orders available.");
-                    return;
-                }
+               
 
                 ConsoleHelper.WriteInfo("All Orders:");
                 foreach (var o in _orders)

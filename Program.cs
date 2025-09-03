@@ -23,8 +23,8 @@ namespace MiniConsoleAppProject
             Effects.LoadingBar();
             Effects.TypeWriter("Hazırsan? O zaman başlayaq!", 50);
 
-            Effects.SpinningLoader(3000);
-            Effects.MatrixEffect(10, 50);
+            //Effects.SpinningLoader(3000);
+            //Effects.MatrixEffect(10, 50);
             application.Run();
           
          
